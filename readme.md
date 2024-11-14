@@ -4,8 +4,6 @@
 
 A lightweight, extensible micro-framework for building websites using Go. It’s designed for developers with experience in Go and web development, offering a foundation that’s easy to customize and expand.
 
-<img src="web/static/img/screenshot.png" style="border-radius: 10px; width: 500px;" alt="Description of image">
-
 ## Tech Stack
 
 - Backend: Go (Golang)
