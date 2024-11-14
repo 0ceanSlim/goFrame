@@ -1,0 +1,32 @@
+{{define "dropdown"}}
+<div class="flex items-center">
+  <div class="relative">
+    <img
+      src="/static/img/hamburger.png"
+      alt="Hamburger Menu"
+      class="w-6 h-6 cursor-pointer md:w-10 md:h-10"
+      onclick="toggleDropdown()"
+    />
+    <div
+      id="dropdown"
+      class="absolute right-0 z-20 hidden w-48 mt-2 text-sm rounded-md shadow-xl bg-bgSecondary text-textPrimary"
+    >
+      <a
+        href="settings"
+        class="block px-4 py-2 hover:text-textInverted hover:bg-bgInverted hover:rounded-md"
+        hx-trigger="click"
+        hx-get="/settings"
+        hx-swap="outerHTML"
+        hx-target="body"
+        >Settings</a
+      >
+    </div>
+  </div>
+</div>
+<script>
+  function toggleDropdown() {
+    const dropdown = document.getElementById("dropdown");
+    dropdown.classList.toggle("hidden");
+  }
+</script>
+{{end}}

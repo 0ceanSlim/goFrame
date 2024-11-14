@@ -1,0 +1,42 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{.Theme}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+    CDNs are used for ease of development. In a Production enviornment, 
+    build a proper minified custom CSS using the Tailwind CLI tool and serve
+    the latest available minified htmx and custom css directly from your server.
+    To download a copy of htmx: https://htmx.org/docs/#download-a-copy
+
+    <link href="/static/tailwind.min.css" rel="stylesheet" />
+    <link href="/static/htmx.min.js">
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/style/custom.min.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.svg" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.12"
+      integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <title>{{template "title"}} - {{.Title}}</title>
+  </head>
+  <body
+    class="max-w-screen-lg p-4 mx-auto font-mono text-center md:p-8 text-textPrimary bg-bgPrimary custom-scrollbar"
+  >
+    {{template "header" .}}
+    <div
+      class="transition-opacity duration-500 ease-in-out opacity-0"
+      _="on load add .opacity-100 to me"
+    >
+      {{template "view" .}}
+    </div>
+    {{template "footer" .}}
+    <script src="static/js/theme.js"></script>
+  </body>
+  <script src="https://unpkg.com/window.nostr.js/dist/window.nostr.js"></script>
+</html>
+{{end}}
